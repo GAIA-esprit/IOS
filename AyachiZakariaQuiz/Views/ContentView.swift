@@ -17,7 +17,7 @@ struct ContentView: View {
                 {
                     Text("Quiz")
                         .lilacTitle()
-                    Text("Are You Ready To Test Your Bio Knocwledge?")
+                    Text("Are You Ready To Test Your Bio Knocwledge")
                         .foregroundColor(Color("AccentColor"))
                     
                 }
