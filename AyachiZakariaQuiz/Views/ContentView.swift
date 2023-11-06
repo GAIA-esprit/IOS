@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @StateObject var triviaManager = TriviaManager()
     var body: some View {
         NavigationView {
             VStack(spacing: 40)
@@ -24,6 +25,7 @@ struct ContentView: View {
                 
                 NavigationLink {
                     TriviaView()
+                        .environmentObject(triviaManager)
                 } label: {
                     PrimaryButton(text: "Let's go")
                 }
@@ -31,6 +33,11 @@ struct ContentView: View {
                     TimedQuizNavView()
                 } label: {
                     PrimaryButton(text: "Game on")
+                }
+                NavigationLink {
+                    CardsGame()
+                } label: {
+                    PrimaryButton(text: "Swipper")
                 }
                 
             }

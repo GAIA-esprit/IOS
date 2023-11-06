@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimedQuizNavView: View {
     var body: some View {
-        TimedQuizView
+        TimedQuizView()
     }
 }
 

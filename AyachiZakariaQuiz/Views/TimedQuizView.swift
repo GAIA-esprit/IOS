@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TimedQuizView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+        }
     }
 }
 
@@ -18,3 +20,4 @@ struct TimedQuizView_Previews: PreviewProvider {
         TimedQuizView()
     }
 }
+
