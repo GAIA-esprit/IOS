@@ -13,6 +13,8 @@ struct TriviaView: View {
     var body: some View {
         if triviaManager.reachedEnd{
             VStack(spacing: 10){
+                
+                
                 Text("AAAAA")
                     .lilacTitle()
                 
@@ -36,9 +38,10 @@ struct TriviaView: View {
             .padding()
             .frame(maxWidth: .infinity,maxHeight: .infinity)
             
+        }else {
+            QuestionView()
+                .environmentObject(triviaManager)
         }
-        QuestionView()
-            .environmentObject(triviaManager)
     }
 }
 
