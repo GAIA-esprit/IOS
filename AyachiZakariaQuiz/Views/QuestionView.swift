@@ -35,9 +35,11 @@ struct QuestionView: View {
 
             }
             Button {
-                triviaManager.goNextQuestion()
+                triviaManager.goToNextQuestion()
             } label: {
-                PrimaryButton(text: "Next")
+                PrimaryButton(text: "Next", backgroung: triviaManager.answerSelected ?
+                              Color(.green) :
+                                Color(hue: 1.0, saturation: 0.546, brightness: 0.327))
             }
             Spacer()
             
