@@ -18,8 +18,7 @@ class TriviaManager: ObservableObject{
     @Published private (set) var progress : CGFloat = 0.00
     @Published private (set) var score = 0
     
-    init()
-    {
+    init() {
         Task.init {
             await fetchTrivia()
         }

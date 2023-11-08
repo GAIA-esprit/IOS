@@ -16,25 +16,29 @@ struct QuestionView: View {
                 Text("Trivia Game")
                     .lilacTitle()
                 Spacer()
-                Text("1 out of 10")
+                Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
                 
                     .foregroundColor(Color("AccentColor"))
                     .fontWeight(.heavy)
             }
-            ProgressBar(progress: 200)
+            ProgressBar(progress: triviaManager.progress)
             VStack(alignment: .leading, spacing: 20){
-                Text("Is a banana a cow?")
+                Text(triviaManager.question)
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
-                AnswerRow(answer: Answer(text: "false", isCorrect: true))
-                    .environmentObject(triviaManager)
-                AnswerRow(answer: Answer(text: "true", isCorrect: false))
-                    .environmentObject(triviaManager)
+                ForEach(triviaManager.answerChoices, id: \.id){
+                    answer in
+                    AnswerRow(answer: answer)
+                        .environmentObject(triviaManager)
+                }
 
             }
-            PrimaryButton(text: "Next")
-            
+            Button {
+                triviaManager.goNextQuestion()
+            } label: {
+                PrimaryButton(text: "Next")
+            }
             Spacer()
             
         }
