@@ -10,14 +10,14 @@ import SwiftUI
 struct CardView: View {
     var card: String
     @State private var offset = CGSize.zero
-    @State private var color: Color = .black
+    @State private var color: Color = .yellow
     
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: 320, height: 420)
-                .border(.white, width: 6.0)
-                .cornerRadius(4)
+                .frame(width: 320, height: 320)
+                .border(.white, width: 0.0)
+                .cornerRadius(400)
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
             HStack{
