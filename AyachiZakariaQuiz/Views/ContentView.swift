@@ -1,55 +1,42 @@
+
+
 //
-//  ContentView.swift
+//  GameMenu.swift
 //  AyachiZakariaQuiz
 //
-//  Created by Ayachi Zakaria on 5/11/2023.
+//  Created by Ayachi Zakaria on 8/11/2023.
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @StateObject var triviaManager = TriviaManager()
+    @State private var selectedTab: Tab = .house
+    init (){
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
-        NavigationView {
-            VStack(spacing: 40)
-            {
-                VStack(spacing: 20)
-                {
-                    Text("Quiz")
-                        .lilacTitle()
-                    Text("Are You Ready To Test Your Bio Knocwledge")
-                        .foregroundColor(Color("AccentColor"))
-                    
-                }
-                
-                NavigationLink {
-                    TriviaView()
-                        .environmentObject(triviaManager)
-                } label: {
-                    PrimaryButton(text: "Let's go")
-                }
-                NavigationLink {
-                    TimedQuizNavView()
-                } label: {
-                    PrimaryButton(text: "Game on")
-                }
-                NavigationLink {
-                    CardsGame()
-                } label: {
-                    PrimaryButton(text: "Swipper")
+        ZStack{
+            VStack{
+                TabView(selection: $selectedTab){
+                    if selectedTab == .puzzlepiece
+                    {
+                        GameMenu()
+                    }
                 }
                 
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .edgesIgnoringSafeArea(.all)
-        .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
+            
+            VStack{
+                Spacer()
+                
+                ToolBar(selectedTab: $selectedTab)
+            }
         }
     }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
