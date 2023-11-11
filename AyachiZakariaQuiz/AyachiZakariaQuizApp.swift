@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+	@main
 struct AyachiZakariaQuizApp: App {
     let persistenceController = PersistenceController.shared
 
