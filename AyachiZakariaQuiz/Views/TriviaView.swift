@@ -32,6 +32,8 @@ struct TriviaView: View {
                     PrimaryButton(text: "again")
                 }
                 
+                Image("congrats")
+                
                 
             }
             .foregroundColor(Color("AccentColor"))
