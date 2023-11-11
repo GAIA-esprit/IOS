@@ -10,24 +10,30 @@ import SwiftUI
 struct CardView: View {
     var card: String
     @State private var offset = CGSize.zero
-    @State private var color: Color = .yellow
+    @State private var color: Color = .clear
     
     var body: some View {
         ZStack {
+            
             Rectangle()
-                .frame(width: 320, height: 320)
+                .frame(width: 320, height: 490)
                 .border(.white, width: 0.0)
-                .cornerRadius(400)
+                .cornerRadius(0)
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
+                .background(Image(card).resizable())
             HStack{
+                
+                Image(systemName: "nosign.app.fill")
+                    .foregroundColor(.red)
                 Text(card)
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .bold()
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
             }
+            
         }
         .offset(x: offset.width, y:offset.height * 0.4)
         .rotationEffect(.degrees(Double(offset.width / 40)))

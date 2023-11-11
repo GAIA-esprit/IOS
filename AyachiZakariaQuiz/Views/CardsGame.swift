@@ -11,11 +11,16 @@ struct CardsGame: View {
     private var cards: [String] = ["1", "2", "3"].reversed()
     var body: some View {
         VStack{
+            Text("Swipe in the right diretion")
+                .lilacTitle()
+            Text("which is recycable")
+                .lilacTitle()
             ZStack{
                 ForEach(cards, id: \.self) { card in
                     CardView(card: card)
                 }
             }
+            
         }
     }
 }
