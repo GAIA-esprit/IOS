@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+class SwipeDirectionManager: ObservableObject {
+    @Published var swipeDirection: SwipeDirection?
+
+    enum SwipeDirection {
+        case left
+        case right
+    }
+}
+
 struct CardView: View {
+    @EnvironmentObject var swipeDirectionManager: SwipeDirectionManager
     var card: String
+    @State private var id = CGSize.zero
     @State private var offset = CGSize.zero
     @State private var color: Color = .clear
     
@@ -58,10 +69,15 @@ struct CardView: View {
     func swipeCard(width: CGFloat){
         switch width {
         case -500...(-150):
+            if card == "1" {
+                print("oi")
+            }
             print("\(card) removed")
+            swipeDirectionManager.swipeDirection = .left
             offset = CGSize(width: -500, height: 0)
         case 150...500:
             print("\(card) added")
+            swipeDirectionManager.swipeDirection = .right
             offset = CGSize(width: 500, height: 0)
         default:
             offset = .zero

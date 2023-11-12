@@ -8,33 +8,13 @@
 import SwiftUI
 
 struct SwiftUIView: View {
-    var body: some View {
-        Text("test")
-            .background(RoundedRectangle(cornerRadius: 10)
-                .fill(.green)
-                .frame(width: 150, height: 250))
-        VStack{
-            HStack{
-                Text("test")
-                    .background(RoundedRectangle(cornerRadius: 10)
-                        .fill(.green)
-                        .frame(width: 150, height: 250))
+    @State private var showDetails = false
+
+        var body: some View {
+            VStack(alignment: .leading) {
                 
-                Text("test")
-                    .background(RoundedRectangle(cornerRadius: 10)
-                        .fill(.green)
-                        .frame(width: 150, height: 250))
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.green)
-                    .frame(width: 150, height: 250)
             }
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.green)
-                .frame(width: 150, height: 250)
-            
         }
-    }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {

@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct GarbageBinView: View {
-    let objects = ["✂️","📚","🧸","🔪"]
+    let objects = ["✂️","📚","🍑","🧀","🔪","🗞️","🍼","⚽️","📺","🔧","💵","🍔"]
     
     @State var paper = [String]()
     @State var metal = [String]()
     @State var glass = [String]()
     @State var bio = [String]()
+    @State private var showDetails = false
+    var blue = ["📚","🗞️","💵"]
+    var yellow = ["✂️","🔪","🔧"]
+    var green = ["🍼","📺","🧀"]
+    var brown = ["🍑","🧀","🍔"]
     
     var body: some View {
+        
         VStack{
                 Text("Drop items in their bin")
                 .lilacTitle()
@@ -23,16 +29,18 @@ struct GarbageBinView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.black)
                     .frame(width: .infinity, height: 50)
-                HStack{
-                    ForEach(objects,
-                            id:\.self)
-                    {
-                        obj in Text(obj)
-                            .font( .title)
-                            .padding()
-                            .onDrag {
-                                NSItemProvider(object: obj as NSString)
-                            }
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack{
+                        ForEach(objects,
+                                id:\.self)
+                        {
+                            obj in Text(obj)
+                                .font( .title)
+                                .padding()
+                                .onDrag {
+                                    NSItemProvider(object: obj as NSString)
+                                }
+                        }
                     }
                 }
             }
@@ -42,6 +50,10 @@ struct GarbageBinView: View {
                 }
             }) {
                 Text("Learn")
+            }
+            if (paper.contains(blue) && glass.contains(green) && metal.contains(yellow) && bio.contains(brown))
+            {
+                Text("Good Job").lilacTitle()
             }
             ZStack{
                 VStack{
