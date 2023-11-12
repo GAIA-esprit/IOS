@@ -41,6 +41,11 @@ struct GameMenu: View {
                 } label: {
                     PrimaryButton(text: "Swipper")
                 }
+                NavigationLink {
+                    GarbageBinView()
+                } label: {
+                    PrimaryButton(text: "Garbage")
+                }
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
