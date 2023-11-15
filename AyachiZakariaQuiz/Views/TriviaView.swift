@@ -9,12 +9,11 @@ import SwiftUI
 
 struct TriviaView: View {
     @EnvironmentObject var triviaManager: TriviaManager
+    @State private var score = UserDefaults.standard.integer(forKey: "score")
     
     var body: some View {
         if triviaManager.reachedEnd{
             VStack(spacing: 10){
-                
-                
                 Text("AAAAA")
                     .lilacTitle()
                 
@@ -23,6 +22,7 @@ struct TriviaView: View {
                 Text("\(triviaManager.score)")
                 
                 Text("\(triviaManager.length)")
+                
                 Button{
                     Task.init{
                         await triviaManager.fetchTrivia()

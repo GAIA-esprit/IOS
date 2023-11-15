@@ -27,6 +27,7 @@ struct PetView: View {
                           .frame(maxHeight: 300)
                           .padding()
                 }
+                
                 Image(vm.pet.happinessLevel == "Happy" ? "happy_pet" : "sad_seal")
                     .resizable()
                     .scaledToFit()
@@ -35,11 +36,19 @@ struct PetView: View {
                 Text("Age: **\(vm.pet.age)** seconds")
                 Text("Status: **\(vm.pet.happinessLevel)**")
                 Text("Hunger: **\(vm.pet.hunger)**")
-                Text("Thirszt: **\(vm.pet.thirst)**")
+                Text("Thirst: **\(vm.pet.thirst)**")
             }
             Section("Actions"){
-                Button("Feed", action : vm.feed)
-                Button("water", action : vm.givewater)
+                Button("🐟 Feed", action : vm.feed)
+                    .foregroundColor(.white)
+                    .background(.green)
+                    .cornerRadius(40)
+                    .shadow(radius: 10)
+                Button("💧Give Water", action : vm.givewater)
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(40)
+                    .shadow(radius: 10)
             }
         }
         
