@@ -10,6 +10,7 @@ import CoreData
 
 struct GameMenu: View {
     @StateObject var triviaManager = TriviaManager()
+    @State private var score = UserDefaults.standard.integer(forKey: "score")
     var body: some View {
         NavigationView {
             VStack(spacing: 40)
@@ -17,6 +18,7 @@ struct GameMenu: View {
                 
                 VStack(spacing: 20)
                 {
+                    Text("\(score)")
                     Text("Quiz")
                         .lilacTitle()
                     Text("Are You Ready To Test Your Bio Knocwledge")

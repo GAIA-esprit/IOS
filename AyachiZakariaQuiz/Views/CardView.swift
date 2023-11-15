@@ -19,6 +19,7 @@ class SwipeDirectionManager: ObservableObject {
 struct CardView: View {
     @EnvironmentObject var swipeDirectionManager: SwipeDirectionManager
     var card: String
+    @AppStorage("score") private var score = 0
     @State private var id = CGSize.zero
     @State private var offset = CGSize.zero
     @State private var color: Color = .clear
@@ -70,18 +71,29 @@ struct CardView: View {
         switch width {
         case -500...(-150):
             if card == "1" {
-                print("oi 1")
+                score -= 1
             }
             if card == "2" {
-                print("oi 2")
+                score += 1
             }
             if card == "3" {
-                print("oi 3")
+                score += 1
             }
+            print("\(score)")
             print("\(card) removed")
             swipeDirectionManager.swipeDirection = .left
             offset = CGSize(width: -500, height: 0)
         case 150...500:
+            if card == "1" {
+                score += 1
+            }
+            if card == "2" {
+                score -= 1
+            }
+            if card == "3" {
+                score -= 1
+            }
+            print("\(score)")
             print("\(card) added")
             swipeDirectionManager.swipeDirection = .right
             offset = CGSize(width: 500, height: 0)
