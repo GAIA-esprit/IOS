@@ -20,18 +20,30 @@ struct Pet: Codable {
     }
     
     var happinessLevel: String {
-        hunger == "hungry" || thirst == "thirst" ? "Unhappy" : "happy"
+        hunger == "Hungry" || thirst == "Thirsy" ? "Unhappy" : "Happy"
     }
     
     var hunger: String {
         let timeSince = calcTimeSince(data: lastMeal)
         var string = "hungry"
+        switch timeSince {
+            case 0..<30: string = "Satiated"
+            case 30..<60: string = "Getting Hungry"
+            case 60...: string = "Hungry"
+            default : string = "haha"
+        }
         
         return string
     }
     var thirst: String {
         let timeSince = calcTimeSince(data: lastDrink)
         var string = "thirst"
+        switch timeSince {
+            case 0..<30: string = "Satiated"
+            case 30..<60: string = "Getting thirsty"
+            case 60...: string = "Thirsy"
+            default : string = "haha"
+        }
         
         return string
     }

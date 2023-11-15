@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension ContentView {
+extension PetView {
     class ViewModel: ObservableObject{
         @Published var pet: Pet
         private var repository = PetData()

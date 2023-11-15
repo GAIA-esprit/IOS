@@ -25,14 +25,14 @@ struct CardView: View {
     
     var body: some View {
         ZStack {
-            
             Rectangle()
                 .frame(width: 320, height: 490)
                 .border(.white, width: 0.0)
                 .cornerRadius(0)
                 .foregroundColor(color.opacity(0.9))
                 .shadow(radius: 4)
-                .background(Image(card).resizable())
+                .background(Image(card).resizable()
+                    .scaledToFit())
             HStack{
                 
                 Image(systemName: "nosign.app.fill")
@@ -70,7 +70,13 @@ struct CardView: View {
         switch width {
         case -500...(-150):
             if card == "1" {
-                print("oi")
+                print("oi 1")
+            }
+            if card == "2" {
+                print("oi 2")
+            }
+            if card == "3" {
+                print("oi 3")
             }
             print("\(card) removed")
             swipeDirectionManager.swipeDirection = .left
@@ -92,7 +98,7 @@ struct CardView: View {
         case 130...500:
             color = .green
         default:
-            color = .black
+            color = .clear
         }
         
     }

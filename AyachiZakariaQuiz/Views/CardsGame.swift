@@ -11,7 +11,6 @@ struct CardsGame: View {
     private var cards: [String] = ["1", "2", "3"].reversed()
     @StateObject var swipeDirectionManager = SwipeDirectionManager()
     var body: some View {
-        var x = print("test")
         VStack{
             Text("Swipe in the right diretion")
                 .lilacTitle()

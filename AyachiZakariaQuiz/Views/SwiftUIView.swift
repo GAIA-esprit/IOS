@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct SwiftUIView: View {
     @State private var showDetails = false
 
-        var body: some View {
-            VStack(alignment: .leading) {
-                
-            }
-        }
+    var body: some View {
+            GIFView(type: .name("sealpup-seal"))
+                  .frame(maxHeight: 300)
+                  .padding()
+       }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {

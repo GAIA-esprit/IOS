@@ -15,6 +15,7 @@
 		6E0B74D32B011049007949C6 /* PetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B74D22B011049007949C6 /* PetData.swift */; };
 		6E0B74D52B011079007949C6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B74D42B011079007949C6 /* Helpers.swift */; };
 		6E0B74D72B011408007949C6 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0B74D62B011408007949C6 /* PetView.swift */; };
+		6E61B4902B04EAFA002694E8 /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E61B48F2B04EAFA002694E8 /* AnimatedImage.swift */; };
 		6E66F9122AF8F52A00746017 /* CardsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66F9112AF8F52A00746017 /* CardsGame.swift */; };
 		6E66F9142AF8F68900746017 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66F9132AF8F68900746017 /* CardView.swift */; };
 		6E66F9182AF904A600746017 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66F9172AF904A600746017 /* Trivia.swift */; };
@@ -23,9 +24,6 @@
 		6E9A50F02AFBBAF400E02BCE /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A50EF2AFBBAF400E02BCE /* GameMenu.swift */; };
 		6E9A50F22AFBD0DF00E02BCE /* LevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A50F12AFBD0DF00E02BCE /* LevelsView.swift */; };
 		6EB81EEB2AFF969C003F96E8 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB81EEA2AFF969C003F96E8 /* SideMenuViewModel.swift */; };
-		6EB81EEF2AFF96B1003F96E8 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB81EEC2AFF96B0003F96E8 /* SideMenuOptionView.swift */; };
-		6EB81EF02AFF96B1003F96E8 /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB81EED2AFF96B0003F96E8 /* SideMenuHeaderView.swift */; };
-		6EB81EF12AFF96B1003F96E8 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB81EEE2AFF96B1003F96E8 /* SideMenuView.swift */; };
 		6EB81EF92AFFBFD9003F96E8 /* GameMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB81EF82AFFBFD9003F96E8 /* GameMain.swift */; };
 		6EC5DC202AF7C70B0054DDB4 /* AyachiZakariaQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5DC1F2AF7C70B0054DDB4 /* AyachiZakariaQuizApp.swift */; };
 		6EC5DC222AF7C70B0054DDB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5DC212AF7C70B0054DDB4 /* ContentView.swift */; };
@@ -43,6 +41,12 @@
 		6EC5DC652AF7E7C60054DDB4 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5DC642AF7E7C60054DDB4 /* Quiz.swift */; };
 		6EC5DC672AF7EB240054DDB4 /* TimedQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5DC662AF7EB240054DDB4 /* TimedQuizView.swift */; };
 		6EC5DC692AF7EB620054DDB4 /* TimedQuizNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC5DC682AF7EB620054DDB4 /* TimedQuizNavView.swift */; };
+		6ED42C0F2B04CD2F00FF9E0D /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6ED42C0E2B04CD2F00FF9E0D /* FLAnimatedImage */; };
+		6ED42C132B04CE3200FF9E0D /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED42C122B04CE3200FF9E0D /* GIFView.swift */; };
+		6ED42C152B04CE9E00FF9E0D /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED42C142B04CE9E00FF9E0D /* URLType.swift */; };
+		6ED42C252B04CF3800FF9E0D /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED42C172B04CED200FF9E0D /* SideMenuHeaderView.swift */; };
+		6ED42C352B04D3D700FF9E0D /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED42C332B04D3D700FF9E0D /* SideMenuOptionView.swift */; };
+		6ED42C362B04D3D700FF9E0D /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED42C342B04D3D700FF9E0D /* SideMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,7 @@
 		6E0B74D22B011049007949C6 /* PetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetData.swift; sourceTree = "<group>"; };
 		6E0B74D42B011079007949C6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		6E0B74D62B011408007949C6 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
+		6E61B48F2B04EAFA002694E8 /* AnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
 		6E66F9112AF8F52A00746017 /* CardsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGame.swift; sourceTree = "<group>"; };
 		6E66F9132AF8F68900746017 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6E66F9172AF904A600746017 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
@@ -79,9 +84,6 @@
 		6E9A50EF2AFBBAF400E02BCE /* GameMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenu.swift; sourceTree = "<group>"; };
 		6E9A50F12AFBD0DF00E02BCE /* LevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsView.swift; sourceTree = "<group>"; };
 		6EB81EEA2AFF969C003F96E8 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
-		6EB81EEC2AFF96B0003F96E8 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuOptionView.swift; path = "../../../GAIA-Main/GAIA-Main/View/SideMenuOptionView.swift"; sourceTree = "<group>"; };
-		6EB81EED2AFF96B0003F96E8 /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuHeaderView.swift; path = "../../../GAIA-Main/GAIA-Main/View/SideMenuHeaderView.swift"; sourceTree = "<group>"; };
-		6EB81EEE2AFF96B1003F96E8 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuView.swift; path = "../../../GAIA-Main/GAIA-Main/View/SideMenuView.swift"; sourceTree = "<group>"; };
 		6EB81EF82AFFBFD9003F96E8 /* GameMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMain.swift; sourceTree = "<group>"; };
 		6EC5DC1C2AF7C70B0054DDB4 /* AyachiZakariaQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AyachiZakariaQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC5DC1F2AF7C70B0054DDB4 /* AyachiZakariaQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyachiZakariaQuizApp.swift; sourceTree = "<group>"; };
@@ -102,6 +104,13 @@
 		6EC5DC642AF7E7C60054DDB4 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		6EC5DC662AF7EB240054DDB4 /* TimedQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedQuizView.swift; sourceTree = "<group>"; };
 		6EC5DC682AF7EB620054DDB4 /* TimedQuizNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedQuizNavView.swift; sourceTree = "<group>"; };
+		6ED42C0A2B04C9E000FF9E0D /* SDWebImageSwiftUI-master */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SDWebImageSwiftUI-master"; path = "../../Downloads/SDWebImageSwiftUI-master"; sourceTree = "<group>"; };
+		6ED42C122B04CE3200FF9E0D /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
+		6ED42C142B04CE9E00FF9E0D /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
+		6ED42C172B04CED200FF9E0D /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SideMenuHeaderView.swift; path = SideMenu/SideMenuHeaderView.swift; sourceTree = "<group>"; };
+		6ED42C332B04D3D700FF9E0D /* SideMenuOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuOptionView.swift; path = "../../../../Downloads/IOS-Gestion-Quiz/AyachiZakariaQuiz/Views/SideMenuOptionView.swift"; sourceTree = "<group>"; };
+		6ED42C342B04D3D700FF9E0D /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuView.swift; path = "../../../../Downloads/IOS-Gestion-Quiz/AyachiZakariaQuiz/Views/SideMenuView.swift"; sourceTree = "<group>"; };
+		6ED42C392B04DB2500FF9E0D /* YDvS0MT.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = YDvS0MT.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED42C0F2B04CD2F00FF9E0D /* FLAnimatedImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				6E0B74D42B011079007949C6 /* Helpers.swift */,
+				6E61B48F2B04EAFA002694E8 /* AnimatedImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 		6EC5DC132AF7C70B0054DDB4 = {
 			isa = PBXGroup;
 			children = (
+				6ED42C092B04C9E000FF9E0D /* Packages */,
 				6EC5DC1E2AF7C70B0054DDB4 /* AyachiZakariaQuiz */,
 				6EC5DC1D2AF7C70B0054DDB4 /* Products */,
 			);
@@ -176,6 +188,7 @@
 		6EC5DC1E2AF7C70B0054DDB4 /* AyachiZakariaQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				6ED42C392B04DB2500FF9E0D /* YDvS0MT.gif */,
 				6E0B74D12B011033007949C6 /* Utils */,
 				6E9A50EC2AFBA38800E02BCE /* Controller */,
 				6E9A50EB2AFBA37D00E02BCE /* ModelView */,
@@ -214,16 +227,17 @@
 		6EC5DC532AF7C95C0054DDB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6EB81EED2AFF96B0003F96E8 /* SideMenuHeaderView.swift */,
-				6EB81EEC2AFF96B0003F96E8 /* SideMenuOptionView.swift */,
-				6EB81EEE2AFF96B1003F96E8 /* SideMenuView.swift */,
+				6ED42C332B04D3D700FF9E0D /* SideMenuOptionView.swift */,
+				6ED42C342B04D3D700FF9E0D /* SideMenuView.swift */,
+				6ED42C172B04CED200FF9E0D /* SideMenuHeaderView.swift */,
+				6E66F9112AF8F52A00746017 /* CardsGame.swift */,
+				6E66F9132AF8F68900746017 /* CardView.swift */,
+				6ED42C122B04CE3200FF9E0D /* GIFView.swift */,
 				6EC5DC212AF7C70B0054DDB4 /* ContentView.swift */,
 				6EC5DC572AF7D0000054DDB4 /* QuestionView.swift */,
 				6EC5DC622AF7E1300054DDB4 /* TriviaView.swift */,
 				6EC5DC662AF7EB240054DDB4 /* TimedQuizView.swift */,
 				6EC5DC682AF7EB620054DDB4 /* TimedQuizNavView.swift */,
-				6E66F9112AF8F52A00746017 /* CardsGame.swift */,
-				6E66F9132AF8F68900746017 /* CardView.swift */,
 				6E9A50EF2AFBBAF400E02BCE /* GameMenu.swift */,
 				6E9A50F12AFBD0DF00E02BCE /* LevelsView.swift */,
 				6EB81EF82AFFBFD9003F96E8 /* GameMain.swift */,
@@ -242,8 +256,17 @@
 				6E66F9172AF904A600746017 /* Trivia.swift */,
 				6E0B74CB2B01096C007949C6 /* Card.swift */,
 				6E0B74CF2B011025007949C6 /* PetModel.swift */,
+				6ED42C142B04CE9E00FF9E0D /* URLType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6ED42C092B04C9E000FF9E0D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6ED42C0A2B04C9E000FF9E0D /* SDWebImageSwiftUI-master */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +285,9 @@
 			dependencies = (
 			);
 			name = AyachiZakariaQuiz;
+			packageProductDependencies = (
+				6ED42C0E2B04CD2F00FF9E0D /* FLAnimatedImage */,
+			);
 			productName = AyachiZakariaQuiz;
 			productReference = 6EC5DC1C2AF7C70B0054DDB4 /* AyachiZakariaQuiz.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +360,9 @@
 				Base,
 			);
 			mainGroup = 6EC5DC132AF7C70B0054DDB4;
+			packageReferences = (
+				6ED42C0D2B04CD2F00FF9E0D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+			);
 			productRefGroup = 6EC5DC1D2AF7C70B0054DDB4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -376,8 +405,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E61B4902B04EAFA002694E8 /* AnimatedImage.swift in Sources */,
 				6EC5DC672AF7EB240054DDB4 /* TimedQuizView.swift in Sources */,
+				6ED42C152B04CE9E00FF9E0D /* URLType.swift in Sources */,
 				6E66F9122AF8F52A00746017 /* CardsGame.swift in Sources */,
+				6ED42C362B04D3D700FF9E0D /* SideMenuView.swift in Sources */,
 				6E66F91A2AF908B000746017 /* TriviaManager.swift in Sources */,
 				6EC5DC692AF7EB620054DDB4 /* TimedQuizNavView.swift in Sources */,
 				6E0B74D52B011079007949C6 /* Helpers.swift in Sources */,
@@ -386,16 +418,15 @@
 				6E0B74D02B011025007949C6 /* PetModel.swift in Sources */,
 				6E0B74CE2B011015007949C6 /* PetViewModel.swift in Sources */,
 				6EC5DC562AF7CEA10054DDB4 /* Extensions.swift in Sources */,
-				6EB81EF12AFF96B1003F96E8 /* SideMenuView.swift in Sources */,
+				6ED42C132B04CE3200FF9E0D /* GIFView.swift in Sources */,
 				6EC5DC652AF7E7C60054DDB4 /* Quiz.swift in Sources */,
+				6ED42C252B04CF3800FF9E0D /* SideMenuHeaderView.swift in Sources */,
 				6E0B74D32B011049007949C6 /* PetData.swift in Sources */,
 				6E9A50EA2AFB9D1500E02BCE /* ToolBar.swift in Sources */,
-				6EB81EF02AFF96B1003F96E8 /* SideMenuHeaderView.swift in Sources */,
 				6EC5DC2C2AF7C70C0054DDB4 /* AyachiZakariaQuiz.xcdatamodeld in Sources */,
 				6EC5DC5F2AF7D9710054DDB4 /* Answer.swift in Sources */,
 				6E66F9182AF904A600746017 /* Trivia.swift in Sources */,
 				6EC5DC582AF7D0000054DDB4 /* QuestionView.swift in Sources */,
-				6EB81EEF2AFF96B1003F96E8 /* SideMenuOptionView.swift in Sources */,
 				6EC5DC522AF7C81A0054DDB4 /* PrimaryButton.swift in Sources */,
 				6E0B74C82B00D841007949C6 /* GarbageBinView.swift in Sources */,
 				6EB81EEB2AFF969C003F96E8 /* SideMenuViewModel.swift in Sources */,
@@ -410,6 +441,7 @@
 				6E66F9142AF8F68900746017 /* CardView.swift in Sources */,
 				6EB81EF92AFFBFD9003F96E8 /* GameMain.swift in Sources */,
 				6EC5DC202AF7C70B0054DDB4 /* AyachiZakariaQuizApp.swift in Sources */,
+				6ED42C352B04D3D700FF9E0D /* SideMenuOptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +757,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6ED42C0D2B04CD2F00FF9E0D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6ED42C0E2B04CD2F00FF9E0D /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6ED42C0D2B04CD2F00FF9E0D /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6EC5DC2A2AF7C70C0054DDB4 /* AyachiZakariaQuiz.xcdatamodeld */ = {

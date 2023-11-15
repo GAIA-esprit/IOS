@@ -32,9 +32,9 @@ struct GameMenu: View {
                     PrimaryButton(text: "Let's go")
                 }
                 NavigationLink {
-                    TimedQuizNavView()
+                    PetView()
                 } label: {
-                    PrimaryButton(text: "Game on")
+                    PrimaryButton(text: "Pet")
                 }
                 NavigationLink {
                     CardsGame()
