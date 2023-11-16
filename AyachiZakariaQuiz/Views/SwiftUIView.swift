@@ -13,9 +13,7 @@ struct SwiftUIView: View {
     @AppStorage("tapCount") private var tapCount = 0
     
     var body: some View {
-                Button("Tap count: \(tapCount)") {
-                    tapCount += 1
-                }
+    
             GIFView(type: .name("sealpup-seal"))
                   .frame(maxHeight: 300)
                   .padding()

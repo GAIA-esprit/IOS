@@ -19,6 +19,7 @@ struct GameMenu: View {
                 VStack(spacing: 20)
                 {
                     Text("\(score)")
+                        .lilacTitle()
                     Text("Quiz")
                         .lilacTitle()
                     Text("Are You Ready To Test Your Bio Knocwledge")
@@ -34,9 +35,8 @@ struct GameMenu: View {
                     PrimaryButton(text: "Let's go")
                 }
                 NavigationLink {
-                    PetView()
-                } label: {
-                    PrimaryButton(text: "Pet")
+                    PetView()                } label: {
+                    PrimaryButton(text: "Pet 🦭")
                 }
                 NavigationLink {
                     CardsGame()

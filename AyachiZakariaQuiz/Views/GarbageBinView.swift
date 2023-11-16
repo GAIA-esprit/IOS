@@ -15,9 +15,10 @@ struct GarbageBinView: View {
     @State var glass = [String]()
     @State var bio = [String]()
     @State private var showDetails = false
+    @State private var score = UserDefaults.standard.integer(forKey: "score")
     var blue = ["📚","🗞️","💵"]
     var yellow = ["✂️","🔪","🔧"]
-    var green = ["🍼","📺","🧀"]
+    var green = ["🍼","📺"]
     var brown = ["🍑","🧀","🍔"]
     
     var body: some View {
@@ -47,13 +48,16 @@ struct GarbageBinView: View {
             Button(action: {
                 if let url = URL(string: "https://alda.company/en/articles/waste-bin-colours-what-do-they-mean") {
                    UIApplication.shared.open(url)
+                    UserDefaults.standard.set(score + 10, forKey: "score")
                 }
             }) {
                 Text("Learn")
             }
             if (paper.contains(blue) && glass.contains(green) && metal.contains(yellow) && bio.contains(brown))
             {
+               
                 Text("Good Job").lilacTitle()
+                
             }
             ZStack{
                 VStack{
@@ -101,6 +105,7 @@ struct GarbageBinView: View {
                 }
             }
         }
+        .navigationBarHidden(true)
     }
 }
 struct TextDropDelegate: DropDelegate {
