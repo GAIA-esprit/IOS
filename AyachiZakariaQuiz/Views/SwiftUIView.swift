@@ -16,9 +16,11 @@ struct SwiftUIView: View {
     
     var body: some View {
         
-            GIFView(type: .name("sealpup-seal"))
-                  .frame(maxHeight: 300)
-                  .padding()
+        GIFView(type: .url(URL(string: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGVheGcwdjJ5b29wMjBzNTg2ejNkaGJ1cmtnM28zbnI1emYyMmFhNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LNt1pkEoZdNUfvYJU9/source.gif")!))
+            .frame(maxHeight: 300)
+            .padding()
+        
+        
        }
 }
 

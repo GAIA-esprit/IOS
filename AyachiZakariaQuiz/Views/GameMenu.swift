@@ -29,30 +29,15 @@ struct GameMenu: View {
                 
                 
                 NavigationLink {
-                    TriviaView()
-                        .environmentObject(triviaManager)
+                    LevelView()
                 } label: {
                     PrimaryButton(text: "Let's go")
-                }
-                NavigationLink {
-                    PetView()                } label: {
-                    PrimaryButton(text: "Pet 🦭")
-                }
-                NavigationLink {
-                    CardsGame()
-                } label: {
-                    PrimaryButton(text: "Swipper")
-                }
-                NavigationLink {
-                    GarbageBinView()
-                } label: {
-                    PrimaryButton(text: "Garbage")
                 }
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
-        .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
+            .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
         }
     }
     

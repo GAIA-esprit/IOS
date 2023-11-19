@@ -20,7 +20,7 @@ struct Pet: Codable {
     }
     
     var happinessLevel: String {
-        hunger == "Hungry" || thirst == "Thirsy" ? "Unhappy" : "Happy"
+        hunger == "Hungry" || thirst == "Thirsty" ? "Unhappy" : "Happy"
     }
     
     var hunger: String {
@@ -41,7 +41,7 @@ struct Pet: Codable {
         switch timeSince {
             case 0..<30: string = "Satiated"
             case 30..<60: string = "Getting thirsty"
-            case 60...: string = "Thirsy"
+            case 60...: string = "Thirsty"
             default : string = "haha"
         }
         

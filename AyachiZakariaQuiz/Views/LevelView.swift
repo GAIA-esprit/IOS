@@ -15,10 +15,13 @@ struct Level: Identifiable {
 }
 
 struct LevelView: View {
+    @StateObject var triviaManager = TriviaManager()
+    @State private var score = UserDefaults.standard.integer(forKey: "score")
     let levels: [Level] = [
-        Level(name: "Easy", imageName: "easy", description: "A good starting point for beginners."),
-        Level(name: "Medium", imageName: "medium", description: "A moderate challenge for experienced players."),
-        Level(name: "Hard", imageName: "hard", description: "Only for the bravest and most skilled players.")
+        Level(name: "Quiz", imageName: "easy", description: "Answer a multiple answer question"),
+        Level(name: "Swipper", imageName: "medium", description: "Swipe the right answers right and the wring ones left"),
+        Level(name: "Garbage Sorter", imageName: "hard", description: "Only for the bravest and most skilled players."),
+        Level(name: "Pet", imageName: "idle1.1", description: "Take care of your virtual pet")
     ]
 
     @State private var selectedLevel: Level?
@@ -61,10 +64,31 @@ struct LevelView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Select Level")
+            .navigationTitle("Select a Game")
             .sheet(item: $selectedLevel) { level in
-                GameMenu()
+                if (level.name == "Pet")
+                {
+                    PetView()
+                }
+                else
+                if (level.name == "Garbage Sorter")
+                {
+                    GarbageBinView()
+                }
+                else
+                if (level.name == "Swipper")
+                {
+                    CardsGame()
+                }
+                else
+                {
+                    TriviaView()
+                        .environmentObject(triviaManager)
+                }
+                
             }
+            
+        .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
         }
     }
 }
