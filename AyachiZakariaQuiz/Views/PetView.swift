@@ -10,81 +10,123 @@ import FLAnimatedImage
 
 struct PetView: View {
     @StateObject private var vm = ViewModel()
-    @State var isFeedPressed = false
-    @State var isWaterPressed = false
-    private var timer = Timer.publish(every: 15, on: .main, in: .common)
-        .autoconnect()
+    @State private var isDarkMode = false
+
     var body: some View {
-        ZStack{
-            Form{
-                Section("pet"){
+        NavigationView {
+            VStack {
+                Section() {
                     TextField("Name your pet", text: $vm.pet.name)
-                    if (vm.pet.hunger == "Getting Hungry" || vm.pet.thirst == "Getting thirsty")
-                    {
-                        GIFView(type: .url(URL(string: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2Y2cmJicTBkNjJvbWh5M3JmaDhzbXQ1aGR4MWg4MWpwZW1pMW9hcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xXq2F1zuTF9dNwVMDP/giphy.gif")!))
-                            .frame(maxHeight: 300)
-                            .frame(width: 200, height: 200)
-                            .padding()
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.vertical, 8)
+                    PetStatusView(pet: vm.pet, isDarkMode: isDarkMode)
+                        .frame(maxHeight: 300)
+                        .padding()
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Age: \(vm.pet.age) seconds")
+                        Text("Status: \(vm.pet.happinessLevel)")
+                        Text("Hunger: \(vm.pet.hunger)")
+                        Text("Thirst: \(vm.pet.thirst)")
                     }
-                    else
-                    if (vm.pet.happinessLevel == "Happy")
-                    {
-                        GIFView(type: .url(URL(string: "https://media.giphy.com/media/V9ZjMRndwPAQ90vkwz/giphy.gif")!))
-                            .frame(maxHeight: 300)
-                            .frame(width: 200, height: 200)
-                            .padding()
-                    }
-                    else
-                    {
-                        GIFView(type: .url(URL(string: "https://media.giphy.com/media/zEvjvvAwBgAWXrLWW3/giphy.gif")!))
-                            .frame(maxHeight: 300)
-                            .frame(width: 200, height: 200)
-                            .padding()
-                    }
-                    
-                    Text("Age: **\(vm.pet.age)** seconds")
-                    Text("Status: **\(vm.pet.happinessLevel)**")
-                    Text("Hunger: **\(vm.pet.hunger)**")
-                    Text("Thirst: **\(vm.pet.thirst)**")
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white.opacity(0.7)))
+                    .cornerRadius(10)
+                    .padding()
                 }
-                Section("Actions"){
-                    if (vm.pet.hunger == "Hungry" )
-                    {
-                        Button("🐟 ", action : vm.feed)
-                            .foregroundColor(.white)
-                            .clipShape(Circle())
-                            .background(.green)
-                            .cornerRadius(40)
-                            .shadow(radius: 10)
-                            .font(.system(size: 60))
-                        
+
+                Section(header: Text("Actions")) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                        PetActionButton(action: vm.feed, title: "Feed", emoji: "🐟", isAvailable: vm.pet.hunger == "Hungry")
+                        PetActionButton(action: vm.givewater, title: "Give Water", emoji: "💧", isAvailable: vm.pet.thirst == "Thirsty")
                     }
-                    if (vm.pet.thirst == "Thirsty" )
-                    {
-                        Button("💧", action : vm.givewater)
-                            .foregroundColor(.white)
-                            .clipShape(Circle())
-                            .background(.blue)
-                            .cornerRadius(40)
-                            .shadow(radius: 10)
-                            .font(.system(size: 60))
-                    }
-                    
-                    
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
                 }
             }
-            
-            .onReceive(timer){_ in
-                vm.saveData()
-            }
+            .padding()
+            .background(isDarkMode ? Image("night") : Image("cloud"))
+            .environment(\.colorScheme, isDarkMode ? .dark : .light)
+            .overlay(
+                Button(action: {
+                    withAnimation {
+                        isDarkMode.toggle()
+                    }
+                }) {
+                    Image(systemName: isDarkMode ? "moon.circle.fill" : "sun.max.fill")
+                        .foregroundColor(isDarkMode ? .white : .black)
+                        .font(.title)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .topTrailing)
+            )
+            .navigationBarTitle("\(vm.pet.name) View")
         }
-        .background(Image("cloud"))
-        
     }
-    
-    struct PetView_Previews: PreviewProvider {
-        static var previews: some View {
-            PetView()
+}
+
+struct PetActionButton: View {
+    var action: () -> Void
+    var title: String
+    var emoji: String
+    var isAvailable: Bool
+
+    var body: some View {
+        Button(action: {
+            action()
+            // Provide feedback here if needed
+        }) {
+            VStack {
+                Text(emoji)
+                    .font(.system(size: 40))
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(isAvailable ? Color.green : Color.gray)
+                    .clipShape(Circle())
+                    .shadow(radius: 5)
+
+                Text(title)
+                    .font(.caption)
+                    .foregroundColor(.primary)
+                    .padding(.top, 4)
+            }
         }
+        .disabled(!isAvailable)
+    }
+}
+
+struct PetStatusView: View {
+    var pet: Pet
+    var isDarkMode: Bool
+
+    var body: some View {
+        Group {
+            if isDarkMode{
+                if pet.hunger == "Getting Hungry" || pet.thirst == "Getting thirsty" {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/lay.gif")!))
+                } else if pet.happinessLevel == "Happy" {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/happy.gif")!))
+                } else {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/sad.gif")!))
+                }
+            }
+            else
+            {
+                if pet.hunger == "Getting Hungry" || pet.thirst == "Getting thirsty" {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/beg.gif")!))
+                } else if pet.happinessLevel == "Happy" {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/idle.gif")!))
+                } else {
+                    GIFView(type: .url(URL(string: "http://localhost:3000/gifs/sad.gif")!))
+                }
+            }
+        }
+        .frame(maxHeight: 300)
+        .frame(width: 200, height: 200)
+    }
+}
+
+struct PetView_Previews: PreviewProvider {
+    static var previews: some View {
+        PetView()
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct Card: Identifiable{
-    var id = Int()
+struct Card : Identifiable,Hashable{
+    let id: String
+    let image: String
+    let recyclable: Bool
 }

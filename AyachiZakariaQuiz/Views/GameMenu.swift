@@ -38,6 +38,11 @@ struct GameMenu: View {
                 } label: {
                     PrimaryButton(text: "If admin")
                 }
+                NavigationLink {
+                    QuizHistoryView(viewModel: QuizHistoryViewModel())
+                } label: {
+                    PrimaryButton(text: "history")
+                }
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

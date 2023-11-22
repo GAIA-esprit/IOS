@@ -8,68 +8,58 @@
 import SwiftUI
 
 struct LevelsView: View {
-    
+
     @StateObject var triviaManager = TriviaManager()
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
     private let dotAppearance = UIPageControl.appearance()
-    
+
     var body: some View {
         TabView(selection: $pageIndex) {
-            ForEach(pages){ page in
-                VStack{
+            ForEach(pages.indices, id: \.self) { index in
+                VStack {
                     Spacer()
-                    PageView(page: page)
+                    PageView(page: pages[index])
+                        .frame(height: 300) // Adjust the height as needed
+
                     Spacer()
-                    if page.tag == 0 {
-                        NavigationLink {
-                            LevelView()
-                        } label: {
-                            PrimaryButton(text: "Go!!!!")
-                        }
-                        
+
+                    NavigationLink(destination: destinationView(for: pages[index].tag)) {
+                        PrimaryButton(text: "Go!!!!")
                     }
-                    else
-                    if page.tag == 1{
-                        NavigationLink {
-                            CardsGame()
-                        } label: {
-                            PrimaryButton(text: "Go!!!!")
-                        }
-                        
-                    }else
-                    if page.tag == 2 {
-                        NavigationLink {
-                            GarbageBinView()
-                        } label: {
-                            PrimaryButton(text: "Go!!!!")
-                        }
-                        
-                    }
-                    else
-                    if page.tag == 3
-                    {
-                        NavigationLink {
-                            PetView()
-                        } label: {
-                            PrimaryButton(text: "Go!!!!")
-                        }
-                    }
-                    Spacer()
                     
+
+                    Spacer()
                 }
+                .tag(index)
             }
         }
         .animation(.easeInOut, value: pageIndex)
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-        .onAppear{
+        .onAppear {
             dotAppearance.currentPageIndicatorTintColor = .black
             dotAppearance.pageIndicatorTintColor = .gray
         }
     }
+
+    private func destinationView(for tag: Int) -> some View {
+        switch tag {
+        case 0:
+            return AnyView(LevelView())
+        case 1:
+            return AnyView(CardsGame())
+        case 2:
+            return AnyView(GarbageBinView())
+        case 3:
+            return AnyView(PetView())
+        default:
+            return AnyView(EmptyView())
+        }
+    }
 }
-struct GameMenu_Previews: PreviewProvider {
+
+struct LevelsView_Previews: PreviewProvider {
     static var previews: some View {
         LevelsView()
     }

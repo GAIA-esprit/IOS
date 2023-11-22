@@ -15,7 +15,7 @@ class PetData {
         if let data = UserDefaults.standard.data(forKey: PET_KEY){
             if let decoded = try? JSONDecoder().decode(Pet.self, from: data) {
                 self.pet = decoded
-                print("pet data recei")
+                print("pet data received")
                 return
             }
         }

@@ -17,7 +17,7 @@ struct Level: Identifiable {
 struct LevelView: View {
     @StateObject var triviaManager = TriviaManager()
     @State private var score = UserDefaults.standard.integer(forKey: "score")
-    @State private var diff = UserDefaults.standard.integer(forKey: "diff")
+    @State private var diff = UserDefaults.standard.string(forKey: "diff")
     
     let levels: [Level] = [
         Level(name: "Easy", imageName: "easy", description: "How weak are you?"),
@@ -67,21 +67,14 @@ struct LevelView: View {
             }
             .navigationTitle("Select a Difficulty")
             .sheet(item: $selectedLevel) { level in
-                if (level.name == "Easy")
-                {
-                    
-                    QuizGameView(viewModel: QuizModelView())
+                if (level.name == "Easy") {
+                    QuizGameView(viewModel: QuizModelView(), difficulty: "easy")
+                } else if (level.name == "Medium") {
+                    QuizGameView(viewModel: QuizModelView(), difficulty: "medium")
+                } else if (level.name == "Hard") {
+                    QuizGameView(viewModel: QuizModelView(), difficulty: "hard")
                 }
-                else
-                if (level.name == "Medium")
-                {
-                    QuizGameView(viewModel: QuizModelView())
-                }
-                else
-                if (level.name == "Hard")
-                {
-                    QuizGameView(viewModel: QuizModelView())
-                }
+                
                 
             }
             
