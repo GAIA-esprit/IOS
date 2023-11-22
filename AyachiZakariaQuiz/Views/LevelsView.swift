@@ -7,35 +7,66 @@
 
 import SwiftUI
 
-struct ContentCellView: View {
-    @State private var color: Color = .yellow
-    var level: Int = 1
-    var isLast: Bool = false
+struct LevelsView: View {
+    
+    @StateObject var triviaManager = TriviaManager()
+    @State private var pageIndex = 0
+    private let pages: [Page] = Page.samplePages
+    private let dotAppearance = UIPageControl.appearance()
+    
     var body: some View {
-        VStack(alignment: HorizontalAlignment.leading, spacing: 0) {
-                    HStack {
-                        Image(systemName: "leaf.circle.fill").frame(width: 150)
-                            .font(.system(size: 150))
-                            .foregroundColor(.green)
+        TabView(selection: $pageIndex) {
+            ForEach(pages){ page in
+                VStack{
+                    Spacer()
+                    PageView(page: page)
+                    Spacer()
+                    if page.tag == 0 {
+                        NavigationLink {
+                            LevelView()
+                        } label: {
+                            PrimaryButton(text: "Go!!!!")
+                        }
                         
                     }
-                    if !isLast {
-                        Rectangle().fill(Color.brown).frame(width: 5, height: 50, alignment: .center).padding(.leading, 75)//.offset(y: -10)
+                    else
+                    if page.tag == 1{
+                        NavigationLink {
+                            CardsGame()
+                        } label: {
+                            PrimaryButton(text: "Go!!!!")
+                        }
+                        
+                    }else
+                    if page.tag == 2 {
+                        NavigationLink {
+                            GarbageBinView()
+                        } label: {
+                            PrimaryButton(text: "Go!!!!")
+                        }
+                        
                     }
-                }
-    }
-}
-
-struct LevelsView: View {
-    var body: some View {
-        ScrollView{
-            VStack(spacing: 1){
-                ForEach((1...5).reversed(), id: \.self) {
-                    ContentCellView(isLast: $0 == 1)
-                    // isLast for not showing last line in last cell
+                    else
+                    if page.tag == 3
+                    {
+                        NavigationLink {
+                            PetView()
+                        } label: {
+                            PrimaryButton(text: "Go!!!!")
+                        }
+                    }
+                    Spacer()
+                    
                 }
             }
-        }.padding()
+        }
+        .animation(.easeInOut, value: pageIndex)
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        .onAppear{
+            dotAppearance.currentPageIndicatorTintColor = .black
+            dotAppearance.pageIndicatorTintColor = .gray
+        }
     }
 }
 struct GameMenu_Previews: PreviewProvider {

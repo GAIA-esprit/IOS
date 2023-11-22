@@ -29,9 +29,14 @@ struct GameMenu: View {
                 
                 
                 NavigationLink {
-                    LevelView()
+                    LevelsView()
                 } label: {
                     PrimaryButton(text: "Let's go")
+                }
+                NavigationLink {
+                    BackOffice()
+                } label: {
+                    PrimaryButton(text: "If admin")
                 }
                 
             }

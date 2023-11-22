@@ -1,5 +1,5 @@
 //
-//  Quiz.swift
+//  QuizModel.swift
 //  AyachiZakariaQuiz
 //
 //  Created by Ayachi Zakaria on 21/11/2023.
@@ -7,15 +7,12 @@
 
 import Foundation
 
-
-struct Quiz: Codable {
-    var id: UUID {
-        UUID()
-    }
+struct QuizModel: Codable {
+    let id: String
+    let category: String
     let type: String
     let difficulty: String
-    let category: String
     let question: String
-    let correct_answer: String
-    let incorrect_answers: [String]
+    let correctAnswer: String
+    let incorrectAnswers: [String]
 }

@@ -23,7 +23,7 @@ class TriviaManager: ObservableObject {
         }
     }
     func fetchTrivia() async {
-        guard let url = URL(string: "https://opentdb.com/api.php?amount=10") else { fatalError("Missing URL") }
+        guard let url = URL(string: "http://localhost:3000/api/quiz/") else { fatalError("Missing URL") }
         
         let urlRequest = URLRequest(url: url)
         
@@ -35,7 +35,7 @@ class TriviaManager: ObservableObject {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let decodedData = try decoder.decode(Trivia.self, from: data)
-
+	
             DispatchQueue.main.async {
                 self.index = 0
                 self.score = 0

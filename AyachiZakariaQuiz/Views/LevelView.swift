@@ -17,11 +17,12 @@ struct Level: Identifiable {
 struct LevelView: View {
     @StateObject var triviaManager = TriviaManager()
     @State private var score = UserDefaults.standard.integer(forKey: "score")
+    @State private var diff = UserDefaults.standard.integer(forKey: "diff")
+    
     let levels: [Level] = [
-        Level(name: "Quiz", imageName: "easy", description: "Answer a multiple answer question"),
-        Level(name: "Swipper", imageName: "medium", description: "Swipe the right answers right and the wring ones left"),
-        Level(name: "Garbage Sorter", imageName: "hard", description: "Only for the bravest and most skilled players."),
-        Level(name: "Pet", imageName: "idle1.1", description: "Take care of your virtual pet")
+        Level(name: "Easy", imageName: "easy", description: "How weak are you?"),
+        Level(name: "Medium", imageName: "medium", description: "Still not impressed"),
+        Level(name: "Hard", imageName: "hard", description: "Now we talkin.")
     ]
 
     @State private var selectedLevel: Level?
@@ -64,26 +65,22 @@ struct LevelView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Select a Game")
+            .navigationTitle("Select a Difficulty")
             .sheet(item: $selectedLevel) { level in
-                if (level.name == "Pet")
+                if (level.name == "Easy")
                 {
-                    PetView()
+                    
+                    QuizGameView(viewModel: QuizModelView())
                 }
                 else
-                if (level.name == "Garbage Sorter")
+                if (level.name == "Medium")
                 {
-                    GarbageBinView()
+                    QuizGameView(viewModel: QuizModelView())
                 }
                 else
-                if (level.name == "Swipper")
+                if (level.name == "Hard")
                 {
-                    CardsGame()
-                }
-                else
-                {
-                    TriviaView()
-                        .environmentObject(triviaManager)
+                    QuizGameView(viewModel: QuizModelView())
                 }
                 
             }
