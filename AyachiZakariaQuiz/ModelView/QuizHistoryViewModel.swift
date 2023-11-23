@@ -44,5 +44,29 @@ class QuizHistoryViewModel: ObservableObject {
                 
         }.resume()
     }
+    func fetchQuizById(quizId: String, completion: @escaping (Quiz?) -> Void) {
+            guard let url = URL(string: "http://localhost:3000/api/quiz/\(quizId)") else {
+                print("Invalid URL")
+                completion(nil)
+                return
+            }
+
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+                    completion(nil)
+                    return
+                }
+
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedData = try decoder.decode(Quiz.self, from: data)
+                    completion(decodedData)
+                } catch {
+                    print("Error decoding data: \(error.localizedDescription)")
+                    completion(nil)
+                }
+            }.resume()
+        }
 
 }
