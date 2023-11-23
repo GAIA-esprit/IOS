@@ -11,6 +11,7 @@ struct QuizHistoryView: View {
     @ObservedObject var viewModel: QuizHistoryViewModel
     @State private var isLoading = false
     @State private var selectedView: QuizHistoryViewStyle = .list
+    @State private var showingAlert = false
 
     enum QuizHistoryViewStyle: String, CaseIterable {
         case list = "List"
@@ -27,7 +28,21 @@ struct QuizHistoryView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-
+                Button("Clear History") {
+                                    showingAlert = true
+                                }
+                                .foregroundColor(.red)
+                                .padding()
+                                .alert(isPresented: $showingAlert) {
+                                    Alert(
+                                        title: Text("Are you sure?"),
+                                        message: Text("This will delete all quiz history. This action cannot be undone."),
+                                        primaryButton: .destructive(Text("Clear History")) {
+                                            viewModel.clearQuizHistory()
+                                        },
+                                        secondaryButton: .cancel()
+                                    )
+                                }
                 if isLoading {
                     ProgressView("Loading...")
                         .padding()

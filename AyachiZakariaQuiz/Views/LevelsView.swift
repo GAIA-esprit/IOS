@@ -34,6 +34,7 @@ struct LevelsView: View {
                 .tag(index)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .animation(.easeInOut, value: pageIndex)
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .interactive))

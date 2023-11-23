@@ -59,8 +59,10 @@ struct PetView: View {
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .topTrailing)
             )
-            .navigationBarTitle("\(vm.pet.name) View")
+            .navigationBarBackButtonHidden(true)
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

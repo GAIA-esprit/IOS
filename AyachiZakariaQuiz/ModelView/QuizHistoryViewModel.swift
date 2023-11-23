@@ -68,5 +68,37 @@ class QuizHistoryViewModel: ObservableObject {
                 }
             }.resume()
         }
+    func clearQuizHistory() {
+        let url = URL(string: "http://localhost:3000/api/quiz/history/\(userID)")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error clearing quiz history: \(error)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(ClearHistoryResult.self, from: data)
+
+                if result.deletedCount > 0 {
+                    DispatchQueue.main.async {
+                        self.quizHistory = []
+                    }
+                }
+            } catch {
+                print("Error decoding clear history result: \(error)")
+            }
+
+        }.resume()
+    }
 
 }

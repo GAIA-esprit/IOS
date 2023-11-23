@@ -77,8 +77,8 @@ struct LevelView: View {
                 
                 
             }
-            
-        .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
+            .navigationBarBackButtonHidden(true)
+            .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
         }
     }
 }

@@ -18,6 +18,8 @@ struct GameMenu: View {
                 
                 VStack(spacing: 20)
                 {
+                    Text("Your score is:")
+                        .lilacTitle()
                     Text("\(score)")
                         .lilacTitle()
                     Text("Quiz")
@@ -34,11 +36,6 @@ struct GameMenu: View {
                     PrimaryButton(text: "Let's go")
                 }
                 NavigationLink {
-                    BackOffice()
-                } label: {
-                    PrimaryButton(text: "If admin")
-                }
-                NavigationLink {
                     QuizHistoryView(viewModel: QuizHistoryViewModel())
                 } label: {
                     PrimaryButton(text: "history")
@@ -49,6 +46,7 @@ struct GameMenu: View {
             .edgesIgnoringSafeArea(.all)
             .background(Color(hue: 0.387, saturation: 0.056, brightness: 0.966))
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     struct GameMenu_Previews: PreviewProvider {
